@@ -1,0 +1,39 @@
+<html ng-app="myApp">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/angular.min.js"></script>
+    <script src="WEB-INF/controller.js"></script>
+
+    <head>
+        <title>News Feeds</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <div ng-controller="controller1" class="container-fluid">
+        <form novalidate class="simple-form">
+            <label>Content: <input type="text" ng-model="news.content" /></label><br />
+            <label>Date: <input type="date" ng-model="news.date" /></label><br />
+            <input type="button" ng-click="reset()" value="Reset" />
+            <input type="submit" ng-click="update(news)" value="Save" />
+        </form>
+    </div>
+    <hr>
+    <body ng-controller="myCtrl as controller">
+
+
+        <div class="container-fluid" ng-init="showButton=true"/>
+        <div ng-show="showText">
+            <div ng-app="myApp">
+                <div ng-controller="myCtrl">
+                    <div ng-repeat="x in myRes">
+                        <h3>{{x.id+ "    " +x.content+ "    "+x.date}}</h3>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button ng-Click="showText=true;showButton=!showButton" ng-show="showButton">Show All News Feed</button>
+        <button ng-Click="showText=false;showButton=!showButton" ng-show="!showButton">Hide All News Feed</button>
+    </body>
+</html>
